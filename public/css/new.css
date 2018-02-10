@@ -1,0 +1,87 @@
+body {
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+
+.header-home-page {
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Josefin Slab', serif;
+}
+.header-on-page {
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Josefin Slab', serif;
+}
+.date-on-page {
+    font-size: 18px;
+    text-align: center;
+    font-family: 'Josefin Slab', serif;
+    font-style: italic;
+}
+    /*.navbar-expand-lg .navbar-toggler {*/
+        /*display: none!important;*/
+    /*}*/
+/*@media (max-width: 764px){*/
+    /*.navbar-expand-lg .navbar-toggler {*/
+        /*display: flex!important;*/
+    /*}*/
+/*}*/
+
+    /*.navbar-expand-lg .navbar-collapse {*/
+        /*display: flex !important;*/
+    /*}*/
+
+/*@media (max-width: 764px) {*/
+    /*.navbar-expand-lg .navbar-collapse {*/
+        /*display: none !important;*/
+    /*}*/
+
+/*}*/
+
+/*@media (min-width: 764px) {*/
+    /*.navbar-expand-lg .navbar-nav {*/
+        /*-webkit-box-orient: horizontal;*/
+        /*-webkit-box-direction: normal;*/
+        /*-ms-flex-direction: row;*/
+        /*flex-direction: row;*/
+    /*}*/
+/*}*/
+/*@media (min-width: 764px) {*/
+    /*.navbar-expand-lg {*/
+        /*-webkit-box-orient: horizontal;*/
+        /*-webkit-box-direction: normal;*/
+        /*-ms-flex-flow: row nowrap;*/
+        /*flex-flow: row nowrap;*/
+        /*-webkit-box-pack: start;*/
+        /*-ms-flex-pack: start;*/
+        /*justify-content: flex-start;*/
+    /*}*/
+/*}*/
+/*@media (min-width: 764px){*/
+    /*.navbar-expand-lg .navbar-collapse {*/
+        /*display: -webkit-box!important;*/
+        /*display: -ms-flexbox!important;*/
+        /*display: flex!important;*/
+        /*-ms-flex-preferred-size: auto;*/
+        /*flex-basis: auto;*/
+    /*}*/
+/*}*/
+.news-item{
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-bottom: 20px;
+}
+/*.center-img-home {*/
+    /*width:100%;*/
+    /*height: auto;*/
+/*}*/
+/*.center-img {*/
+    /*display: block;*/
+    /*margin: 0 auto;*/
+/*}*/
+
+
+

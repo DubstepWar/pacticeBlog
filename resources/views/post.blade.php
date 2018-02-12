@@ -25,7 +25,7 @@
                 <p class="text-danger">Авторизируйтесь для коментариев</p>
             @else
                 <p>Ваш комментарий:</p>
-                <form action="{{route('comment_post')}}" method="POST>
+                <form action="{{route('comment_post')}}" method="POST">
                 {!! csrf_field() !!}
                         <input name="article_id" type="hidden" value="{{$article->id}}">
                 <textarea name="comment" rows="5" cols="100">{{ old('comment') }}</textarea><br>

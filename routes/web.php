@@ -6,7 +6,7 @@
 Route::get('/', 'PageController@seeAll')->name('home');
 
 //пост
-Route::get('post/{alias}', 'PostController@getPost')->name('post');
+Route::get('/post/{alias}', 'PostController@getPost')->name('post');
 
 Auth::routes();
 
@@ -33,9 +33,9 @@ Auth::routes();
 
 
 //админка
-Route::get('/admin', 'AdminController@showPanel')->name('admin');
 
 Route::group(['middleware' => 'auth', 'middleware' => 'access:admin'], function () {
-    // Здесь продолжайте свое творение
-    Route::get('dashboard', function() { echo "HELLO WORLD"; } );
+    //
+    Route::get('/admin', 'AdminController@showPanel')->name('admin');
+
 });

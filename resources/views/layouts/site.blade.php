@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf_token" content="{{ csrf_token() }}">
 
-    <script>
-        window.Laravel = {!! json_encode([
-        'csrfToken' => csrf_token(),
-        ]) !!};
-    </script>
+    {{--<script>--}}
+        {{--window.Laravel = {!! json_encode([--}}
+        {{--'csrfToken' => csrf_token(),--}}
+        {{--]) !!};--}}
+    {{--</script>--}}
 
     <title>Наш блог</title>
     {{--Google Fonts--}}
@@ -74,11 +74,14 @@
                                                      document.getElementById('logout-form').submit();">
                                         Выход
                                     </a></li>
-                                <li><a href="/profile/{{ Auth::user()->id }}">Личный кабинет</a></li>
-                                @if(Auth::user()->id == '2' && Auth::user()->email == 'admin@admin.admin')
-
+                                @if(Auth::user()->is_admin == '1')
                                     <li><a href="{{route('admin')}}">Админ-панель</a></li>
                                 @endif
+{{--<li><a href="/profile/{{ Auth::user()->id }}">Личный кабинет</a></li>--}}
+                                {{--@if(Auth::user()->id == '2' && Auth::user()->email == 'admin@admin.admin')--}}
+
+                                    {{--<li><a href="{{route('admin')}}">Админ-панель</a></li>--}}
+                                {{--@endif--}}
 
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"

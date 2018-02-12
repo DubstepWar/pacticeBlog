@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50637
 File Encoding         : 65001
 
-Date: 2018-02-10 17:33:47
+Date: 2018-02-12 16:31:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -167,9 +167,10 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'Denis', 'den@den.den', '$2y$10$FhtILWYDEFPXgVOjO5C7L.U1of10MVZgUeqWH34ksCEFHEMMSIx16', '0', null, '2018-02-09 13:46:10', '2018-02-09 13:46:10');
+INSERT INTO `users` VALUES ('1', 'Denis', 'den@den.den', '$2y$10$FhtILWYDEFPXgVOjO5C7L.U1of10MVZgUeqWH34ksCEFHEMMSIx16', '1', 'ALhRquRXfvjyE7vM4tzRd7qPJaLLHyJrE0g9GQA2PwOQhagR0RYFzhy4BWkx', '2018-02-09 13:46:10', '2018-02-09 13:46:10');
+INSERT INTO `users` VALUES ('2', 'Not admin', 'neAdmin@loh.on', '$2y$10$fpmsNcQwxgB0jcxuZG2t0.bq5rdsZX.69rT6yURAM8CvABsN9FMWq', '0', 'GoGD8nYAxomFfOcqUPWrnwJ8ZeR51yY9R0LmhLg2STJDp1Ih6x75Aa4d4Y4H', '2018-02-12 14:28:15', '2018-02-12 14:28:15');

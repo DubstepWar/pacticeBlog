@@ -30,8 +30,15 @@ class AdminController extends Controller
         $data = $request->input();
         $article = new Article;
         $article->fill($data);
-        $saved = $article->save();
+        $article->save();
 
         return redirect()->back()->with('message', 'Пост добавлен!');
+    }
+
+    public function deletePost(Article $article)
+    {
+        //$article_tmp = Article::where('id', $article)->first();
+        $article->delete();
+        return redirect()->back();
     }
 }

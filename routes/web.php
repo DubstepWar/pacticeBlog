@@ -41,3 +41,5 @@ Route::group(['middleware' => 'auth', 'middleware' => 'access:admin'], function 
 });
 Route::get('/admin/add-post', 'AdminController@addPost')->name('addPost');
 Route::post('/admin/add-post', 'AdminController@storePost')->name('storePost');
+
+Route::delete('/admin/{article}', 'AdminController@deletePost')->name('deletePost');

@@ -39,3 +39,5 @@ Route::group(['middleware' => 'auth', 'middleware' => 'access:admin'], function 
     Route::get('/admin', 'AdminController@showPanel')->name('admin');
 
 });
+Route::get('/admin/add-post', 'AdminController@addPost')->name('addPost');
+Route::post('/admin/add-post', 'AdminController@storePost')->name('storePost');

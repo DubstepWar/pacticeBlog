@@ -38,7 +38,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Обновление поста</a>
+                    <a class="nav-link" href="{{ route('addPost') }}">Добавить пост</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="/">Пользователи</a>

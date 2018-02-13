@@ -8,6 +8,8 @@ class Article extends Model
 {
     protected $table = 'articles';
 
+    protected $fillable = ['name', 'alias', 'description', 'body', 'img', 'category_id'];
+
     protected $guarded = [];
 
     public function category()

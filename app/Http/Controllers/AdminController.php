@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function showPanel(){
-        return view('AdminPanel.main');
+
+        return view('AdminPanel.postsEditing');
     }
 }

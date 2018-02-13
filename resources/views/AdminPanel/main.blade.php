@@ -1,5 +1,4 @@
-
-        <!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="ru">
 
@@ -23,10 +22,10 @@
     {{--navbar--}}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" role="navigation">
         <a href="#" class="navbar-brand">
-            <img src="http://ukreba.com.ua/files/img/big/14886349-7a52-ccf4-b912-8c023cb9cd8e.jpg"
+            <img src="http://moziru.com/images/gothic-clipart-calligraphy-5.jpg"
                  width="35px" height="35px" alt="logo">
         </a>
-        <button class/="navbar-toggler" type="button" data-toggle="collapse"
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggle-icon"></span>>
@@ -34,18 +33,16 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-               <li class="nav-item">
-                   <a class="nav-link " href="/ ">Вернуться в блог</a>
-               </li>
                 <li class="nav-item">
-                    <a class= "nav-link" href="/">Админ панель</a>
+                    <a class="nav-link " href="{{ route('home') }}">Вернуться в блог</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Обновление поста</a>
                 </li>
                 <li class="nav-item">
-                    <a class= "nav-link " href="/">Пользователи</a>
+                    <a class="nav-link " href="/">Пользователи</a>
                 <li>
-                <li class="nav-item">
-                    <a  class="nav-link" href="/">Обновление поста</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link " href="/">Комментарии</a>
                 </li>
@@ -59,9 +56,15 @@
 </head>
 
 
-
-
 <body>
+@if(count($errors) > 0)
+    <ul>
+        @foreach($errors->all() as $error )
+            <li class="text-danger"> {{ $error }} </li>
+        @endforeach
+    </ul>
+@endif
+
 @yield('content')
 
 

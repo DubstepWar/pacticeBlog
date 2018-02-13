@@ -20,13 +20,13 @@ class AdminController extends Controller
 
     public function storePost(Request $request)
     {
-//        $this->validate($request, [
-//            'name' => 'required | max:255',
-//           'alias' => 'required | unique:articles,alias | max:30',
-//            'description' => 'required | max:255',
-//            'body' => 'required',
-//            'category_id' => 'required',
-//        ]);
+        $this->validate($request, [
+            'name' => 'required | max:255',
+            'alias' => 'required | unique:articles,alias | max:30',
+            'description' => 'required | max:255',
+            'body' => 'required',
+            'category_id' => 'required',
+        ]);
 
         $data = $request->all();
         $article = new Article;

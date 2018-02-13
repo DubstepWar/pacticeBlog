@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label for="category_id">ID категории</label>
-                    <input class="form-control" type="number" name="categoty_id">
+                    <input class="form-control" type="number" name="category_id">
                 </div>
 
                 <button class="btn btn-primary" type="submit" name="done">Создать пост</button>

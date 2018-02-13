@@ -22,16 +22,15 @@ class AdminController extends Controller
     {
         $this->validate($request, [
             'name' => 'required | max:255',
-            'alias' => 'required | unique:articles,alias | max:30',
+            'alias' => ['required', 'unique:articles,alias', 'max:30'],
             'description' => 'required | max:255',
             'body' => 'required',
             'category_id' => 'required',
         ]);
-
-        $data = $request->all();
+        $data = $request->input();
         $article = new Article;
         $article->fill($data);
-        $article->save();
+        $saved = $article->save();
 
         return redirect()->back()->with('message', 'Пост добавлен!');
     }

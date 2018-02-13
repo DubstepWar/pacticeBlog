@@ -22,9 +22,7 @@ class PostController extends Controller
     public function comment(Request $request)
     {
      $comment = new Comment;
-
      $comment->comment = $request['comment'];
-
      $comment->article_id = $request['article_id'];
      $comment->user_id = Auth::user()->id;
      $comment->save();

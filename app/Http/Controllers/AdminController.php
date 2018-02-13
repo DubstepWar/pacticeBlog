@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function showPanel(){
-        return view('admin-panel');
+        return view('AdminPanel.main');
     }
 }

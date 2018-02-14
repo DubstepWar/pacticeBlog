@@ -30,7 +30,8 @@
                     <input class="form-control" type="number" name="category_id">
                 </div>
 
-                <button class="btn btn-primary" type="submit" name="done">Создать пост</button>
+                <button class="btn btn-success" type="submit" name="done">Создать пост</button>
+                <a class="btn btn-info" href="{{ route('admin') }}" role="button">Вернуться к редактированию</a>
 
                 {{ csrf_field() }}
 

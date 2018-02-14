@@ -41,4 +41,26 @@ class AdminController extends Controller
         $article->delete();
         return redirect()->back();
     }
+
+    public function updatePost(Request $request, $id)
+    {
+        $input = $request->input();
+        $article = Article::findOrFail($id);
+        //dd($article);
+        $article->fill($input)->save();
+
+        return redirect()->back();
+    }
 }
+
+//    public function updateORdelete(Article $article, Request $request)
+//    {
+//        dd($request);
+//        if (isset($request->doneUpdate)) {
+//            $article->update();
+//        } elseif (isset($request->doneDelete)) {
+//            $article->delete();
+//
+//        }
+//        return redirect()->back();
+//

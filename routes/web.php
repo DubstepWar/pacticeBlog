@@ -35,11 +35,13 @@ Auth::routes();
 //админка
 
 Route::group(['middleware' => 'auth', 'middleware' => 'access:admin'], function () {
-    //
+    //главная(редактирование постов)
     Route::get('/admin', 'AdminController@showPanel')->name('admin');
 
 });
 Route::get('/admin/add-post', 'AdminController@addPost')->name('addPost');
 Route::post('/admin/add-post', 'AdminController@storePost')->name('storePost');
-
+//удаление поста
 Route::delete('/admin/{article}', 'AdminController@deletePost')->name('deletePost');
+//обновление поста
+Route::put('/admin/{id}', 'AdminController@updatePost')->name('updatePost');

@@ -36,6 +36,9 @@
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('home') }}">Вернуться в блог</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('admin') }}">Админ панель</a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('addPost') }}">Добавить пост</a>

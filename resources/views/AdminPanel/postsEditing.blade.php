@@ -4,7 +4,7 @@
     <h1 class="header-on-page">Редактирование постов</h1>
 
     <div class="container">
-        <div class="conteiner-fluid">
+        <div class="container-fluid">
 
             @if (Session::has('message'))
                 <div class=" text-center text-success">

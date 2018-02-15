@@ -11,6 +11,7 @@ class Comment extends Model
     protected $fillable = [
         'id', 'comment', 'article_id', 'user_id', 'created_at', 'updated_at'
     ];
+    protected $guarded = [];
 
     public function user() {
         return $this->hasOne(User::class, 'id', 'user_id');

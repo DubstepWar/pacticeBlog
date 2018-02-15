@@ -45,3 +45,7 @@ Route::post('/admin/add-post', 'AdminController@storePost')->name('storePost');
 Route::delete('/admin/{article}', 'AdminController@deletePost')->name('deletePost');
 //обновление поста
 Route::put('/admin/{id}', 'AdminController@updatePost')->name('updatePost');
+
+Route::get('/admin/comment', 'AdminCommentController@showPanel')->name('admin_com');
+Route::delete('/admin/comment/{comment}','AdminCommentController@deleteComm')->name('deleteComm');
+Route::put('/admin/comment/{id}','AdminCommentController@updateComm')->name('editComm');

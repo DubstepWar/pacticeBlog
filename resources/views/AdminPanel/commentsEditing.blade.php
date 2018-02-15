@@ -19,7 +19,7 @@
                 <form action="{{ route('editComm',['$comment' => $comment->id]) }}" method="post">
                     <div class="form-group">
 
-                        <input class="form-control" type="text" name="name" value="{{ $comment->comment }}">
+                        <input class="form-control" type="text" name="comment" value="{{ $comment->comment }}">
                     </div>
 
                     <button class="btn btn-success" type="submit" name="Update">Обновить коментарий</button>

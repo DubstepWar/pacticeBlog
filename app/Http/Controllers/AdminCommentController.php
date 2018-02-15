@@ -27,8 +27,7 @@ class AdminCommentController extends Controller
         $comment = Comment::findOrFail($id);
 
         $comment->fill($input);
-        $comment->comment = $request->input('name');
-        $comment->save();
+        $comment->save()
 
 
         return redirect(route('admin_com'));

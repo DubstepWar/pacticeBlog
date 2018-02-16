@@ -37,30 +37,18 @@ class AdminController extends Controller
 
     public function deletePost(Article $article)
     {
-        //$article_tmp = Article::where('id', $article)->first();
         $article->delete();
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Пост удален!');
     }
 
     public function updatePost(Request $request, $id)
     {
         $input = $request->input();
         $article = Article::findOrFail($id);
-        //dd($article);
-        $article->fill($input)->save();
+        $article->fill($input);
 
-        return redirect()->back();
+        $article->save();
+
+        return redirect()->back()->with('message', 'Пост обновлен!');
     }
 }
-
-//    public function updateORdelete(Article $article, Request $request)
-//    {
-//        dd($request);
-//        if (isset($request->doneUpdate)) {
-//            $article->update();
-//        } elseif (isset($request->doneDelete)) {
-//            $article->delete();
-//
-//        }
-//        return redirect()->back();
-//

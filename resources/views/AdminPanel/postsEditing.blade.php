@@ -16,7 +16,7 @@
 
             @foreach($articles as $article)
 
-                <form action="{{ route('deletePost',['$article' => $article->id]) }}" method="post">
+                <form action="{{ route('updatePost',['$article' => $article->id]) }}" method="post">
                     <div class="form-group">
                         <label for="name">Название поста</label>
                         <input class="form-control" type="text" name="name" value="{{ $article->name }}">
@@ -50,7 +50,7 @@
                     {{ method_field('put') }}
 
                 </form>
-                <form action="{{ route('updatePost',['id' => $article->id]) }}" method="post">
+                <form action="{{ route('deletePost',['id' => $article->id]) }}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('delete') }}
                     <button class="btn btn-danger" type="submit" name="doneDelete">Удалить пост</button>

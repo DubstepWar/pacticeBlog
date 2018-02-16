@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Comment;
 use Illuminate\Http\Request;
 
-class AdminCommentController extends Controller
+class AdminCommentsController extends Controller
 {
     public function showPanel()
     {

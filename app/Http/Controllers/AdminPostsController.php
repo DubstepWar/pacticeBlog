@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use App\Article;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class AdminPostsController extends Controller
 {
-    public function showPanel()
+    public function allPosts()
     {
         $articles = Article::all();
-        return view('AdminPanel.postsEditing')->with('articles', $articles);
+        return view('AdminPanel.all-posts')->with('articles', $articles);
+    }
+
+    public function editPost($id)
+    {
+        $articles = Article::all()->where('id', $id)->first();
+        return view('AdminPanel.edit-post')->with('articles', $articles);
     }
 
     public function addPost()

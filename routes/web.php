@@ -27,25 +27,27 @@ Route::get('/category/{alias}', 'PostsCategory@show')->name('category_posts');
 //коменты
 Route::post('/post', 'PostController@comment')->name('comment_post');
 
-
-
 Auth::routes();
-
 
 //админка
 
 Route::group(['middleware' => 'auth', 'middleware' => 'access:admin'], function () {
     //главная(редактирование постов)
-    Route::get('/admin', 'AdminController@showPanel')->name('admin');
+    Route::get('/admin', 'AdminPostsController@allPosts')->name('admin');
 
 });
-Route::get('/admin/add-post', 'AdminController@addPost')->name('addPost');
-Route::post('/admin/add-post', 'AdminController@storePost')->name('storePost');
-//удаление поста
-Route::delete('/admin/{article}', 'AdminController@deletePost')->name('deletePost');
-//обновление поста
-Route::put('/admin/{id}', 'AdminController@updatePost')->name('updatePost');
 
-Route::get('/admin/comment', 'AdminCommentController@showPanel')->name('admin_com');
-Route::delete('/admin/comment/{comment}','AdminCommentController@deleteComm')->name('deleteComm');
-Route::put('/admin/comment/{id}','AdminCommentController@updateComm')->name('editComm');
+//редактирование постов
+Route::get('admin/edit-post/{id}', 'AdminPostsController@editPost')->name('editPost');
+//добавление постов
+Route::get('/admin/add-post', 'AdminPostsController@addPost')->name('addPost');
+Route::post('/admin/add-post', 'AdminPostsController@storePost')->name('storePost');
+//удаление поста
+Route::delete('/admin/{article}', 'AdminPostsController@deletePost')->name('deletePost');
+//обновление поста
+Route::put('/admin/{id}', 'AdminPostsController@updatePost')->name('updatePost');
+
+//коменты
+Route::get('/admin/comment', 'AdminCommentsController@showPanel')->name('admin_com');
+Route::delete('/admin/comment/{comment}','AdminCommentsController@deleteComm')->name('deleteComm');
+Route::put('/admin/comment/{id}','AdminCommentsController@updateComm')->name('editComm');

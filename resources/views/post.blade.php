@@ -17,7 +17,7 @@
             @endforeach
 
             @foreach($comments as $comment)
-                <p>Пользователь: <span>{{ $comment->user->name }}</span> в
+                <p>Пользователь: <span class="text-primary">{{ $comment->user->name }}</span> в
                     <span>{{$comment->created_at}}</span> добавил комментарий:</p>
                 <p>{{$comment->comment}}</p>
             @endforeach

@@ -1,7 +1,7 @@
 @extends('AdminPanel.main')
 
 @section('content')
-    <h1 class="header-on-page">Редактирование постов</h1>
+    <h1 class="header-on-page">Редактирование поста</h1>
 
     <div class="container">
         <div class="container-fluid">
@@ -14,33 +14,31 @@
                 </div>
             @endif
 
-            @foreach($articles as $article)
-
-                <form action="{{ route('updatePost',['$article' => $article->id]) }}" method="post">
+                <form action="{{ route('updatePost',['id' => $articles->id]) }}" method="post">
                     <div class="form-group">
                         <label for="name">Название поста</label>
-                        <input class="form-control" type="text" name="name" value="{{ $article->name }}">
+                        <input class="form-control" type="text" name="name" value="{{ $articles->name }}">
                     </div>
                     <div class="form-group">
                         <label for="alias">Псевдоним</label>
-                        <input class="form-control" type="text" name="alias" value="{{ $article->alias }}">
+                        <input class="form-control" type="text" name="alias" value="{{ $articles->alias }}">
                     </div>
                     <div class="form-group">
                         <label for="description">Краткое описание поста</label>
-                        <input class="form-control" type="text" name="description" value="{{ $article->description }}">
+                        <input class="form-control" type="text" name="description" value="{{ $articles->description }}">
                     </div>
                     <div class="form-group">
                         <label for="body">Полный текст поста</label>
-                        <textarea class="form-control" name="body">{{ $article->body }}</textarea>
+                        <textarea class="form-control" name="body">{{ $articles->body }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="img">URL картинки</label>
-                        <input class="form-control" type="text" name="img" value="{{ $article->img }}">
+                        <input class="form-control" type="text" name="img" value="{{ $articles->img }}">
                     </div>
                     <div class="form-group">
                         <label for="category_id">ID категории</label>
                         <input class="form-control" type="number" name="category_id"
-                               value="{{ $article->category_id }}">
+                               value="{{ $articles->category_id }}">
                     </div>
 
                     <button class="btn btn-success" type="submit" name="doneUpdate">Обновить пост</button>
@@ -50,12 +48,11 @@
                     {{ method_field('put') }}
 
                 </form>
-                <form action="{{ route('deletePost',['id' => $article->id]) }}" method="post">
+                <form action="{{ route('deletePost',['article' => $articles->id]) }}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('delete') }}
                     <button class="btn btn-danger" type="submit" name="doneDelete">Удалить пост</button>
                 </form>
-            @endforeach
         </div>
     </div>
 

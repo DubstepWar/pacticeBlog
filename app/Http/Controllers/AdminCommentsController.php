@@ -11,7 +11,7 @@ class AdminCommentsController extends Controller
     {
        $comments = Comment::all();
 
-        return view('AdminPanel.commentsEditing', ['comments' => $comments]);
+        return view('AdminPanel.edit-comment', ['comments' => $comments]);
     }
     public function deleteComm(Comment $comment)
     {

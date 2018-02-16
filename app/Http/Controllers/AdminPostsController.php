@@ -44,7 +44,7 @@ class AdminPostsController extends Controller
     public function deletePost(Article $article)
     {
         $article->delete();
-        return redirect()->back()->with('message', 'Пост удален!');
+        return redirect(route('admin'));
     }
 
     public function updatePost(Request $request, $id)

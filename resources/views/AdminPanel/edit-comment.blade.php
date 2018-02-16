@@ -1,7 +1,7 @@
 @extends('AdminPanel.main')
 
 @section('content')
-    <h1 class="header-on-page">Редактирование коментариев</h1>
+    <h1 class="header-on-page">Редактировать коментарий</h1>
 
     <div class="container">
         <div class="container-fluid">
@@ -14,27 +14,24 @@
                 </div>
             @endif
 
-            @foreach($comments as $comment)
-
-                <form action="{{ route('editComm',['$comment' => $comment->id]) }}" method="post">
+                <form action="{{ route('updateComment',['id' => $comment->id]) }}" method="post">
                     <div class="form-group">
 
                         <input class="form-control" type="text" name="comment" value="{{ $comment->comment }}">
                     </div>
 
-                    <button class="btn btn-success" type="submit" name="Update">Обновить коментарий</button>
+                    <button class="btn btn-success" type="submit" name="doneUpdate">Обновить коментарий</button>
 
 
                     {{ csrf_field() }}
                     {{ method_field('put') }}
 
                 </form>
-                <form action="{{ route('deleteComm',['id' => $comment->id]) }}" method="post">
+                <form action="{{ route('deleteComment',['comment' => $comment->id]) }}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('delete') }}
-                    <button class="btn btn-danger" type="submit" name="Delete">Удалить пкоментарий</button>
+                    <button class="btn btn-danger" type="submit" name="doneDelete">Удалить пкоментарий</button>
                 </form>
-            @endforeach
         </div>
     </div>
 

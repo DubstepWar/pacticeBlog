@@ -48,6 +48,8 @@ Route::delete('/admin/{article}', 'AdminPostsController@deletePost')->name('dele
 Route::put('/admin/{id}', 'AdminPostsController@updatePost')->name('updatePost');
 
 //коменты
-Route::get('/admin/comment', 'AdminCommentsController@showPanel')->name('admin_com');
-Route::delete('/admin/comment/{comment}','AdminCommentsController@deleteComm')->name('deleteComm');
-Route::put('/admin/comment/{id}','AdminCommentsController@updateComm')->name('editComm');
+Route::get('/admin/comments', 'AdminCommentsController@allComments')->name('allComments');
+Route::get('/admin/comment/{id}', 'AdminCommentsController@editComment')->name('editComment');
+
+Route::delete('/admin/comment/{comment}','AdminCommentsController@deleteComment')->name('deleteComment');
+Route::put('/admin/comment/{id}', 'AdminCommentsController@updateComment')->name('updateComment');

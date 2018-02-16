@@ -7,30 +7,34 @@ use Illuminate\Http\Request;
 
 class AdminCommentsController extends Controller
 {
-    public function showPanel()
+    public function allComments()
     {
        $comments = Comment::all();
 
-        return view('AdminPanel.edit-comment', ['comments' => $comments]);
+        return view('AdminPanel.all-comments', ['comments' => $comments]);
     }
-    public function deleteComm(Comment $comment)
+
+    public function editComment($id){
+        $comment = Comment::all()->where('id', $id)->first();
+        return view('AdminPanel.edit-comment')->with('comment', $comment);
+    }
+
+    public function deleteComment(Comment $comment)
     {
 
         $comment->delete();
 
-        return redirect()->back();
+        return redirect(route('allComments'));
     }
 
-    public function updateComm(Request $request, $id)
+    public function updateComment(Request $request, $id)
     {
         $input = $request->input();
         $comment = Comment::findOrFail($id);
-
         $comment->fill($input);
         $comment->save();
 
-
-        return redirect(route('admin_com'));
+        return redirect()->back()->with('message','Коментарий изменен!');
     }
 
 }

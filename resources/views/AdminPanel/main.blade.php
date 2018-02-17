@@ -43,7 +43,7 @@
                     <a class="nav-link" href="{{ route('addPost') }}">Добавить пост</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="#">Пользователи</a>
+                    <a class="nav-link " href="{{ route('allUsers') }}">Пользователи</a>
                 <li>
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('allComments') }}">Комментарии</a>

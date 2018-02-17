@@ -77,11 +77,7 @@
                                 @if(Auth::user()->is_admin == '1')
                                     <li><a href="{{route('admin')}}">Админ-панель</a></li>
                                 @endif
-{{--<li><a href="/profile/{{ Auth::user()->id }}">Личный кабинет</a></li>--}}
-                                {{--@if(Auth::user()->id == '2' && Auth::user()->email == 'admin@admin.admin')--}}
-
-                                    {{--<li><a href="{{route('admin')}}">Админ-панель</a></li>--}}
-                                {{--@endif--}}
+                                <li><a href="{{ route('userProfile',['id' => Auth::user()->id]) }}">Личный кабинет</a></li>
 
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"

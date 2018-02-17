@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 
-class PostsCategory extends Controller
+class PostsCategoryController extends Controller
 {
     public function show(Request $request, $alias) {
         $category = Category::all()->where('alias', $alias)->first();

@@ -30,7 +30,7 @@
                 <form action="{{ route('deleteComment',['comment' => $comment->id]) }}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('delete') }}
-                    <button class="btn btn-danger" type="submit" name="doneDelete">Удалить пкоментарий</button>
+                    <button class="btn btn-danger" type="submit" name="doneDelete">Удалить коментарий</button>
                 </form>
         </div>
     </div>

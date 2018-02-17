@@ -22,12 +22,15 @@ Route::get('/tags', 'TagsController@show')->name('tags');
 Route::get('/posts/tag/{alias}','TagPostsController@show')->name('tag');
 
 //все посты категории
-Route::get('/category/{alias}', 'PostsCategory@show')->name('category_posts');
+Route::get('/category/{alias}', 'PostsCategoryController@show')->name('category_posts');
 
 //коменты
 Route::post('/post', 'PostController@comment')->name('comment_post');
 
 Auth::routes();
+
+//личный кабинет
+Route::get('/user-profile/{id}','UserProfileController@show')->name('userProfile');
 
 //админка
 
@@ -37,7 +40,7 @@ Route::group(['middleware' => 'auth', 'middleware' => 'access:admin'], function 
 
 });
 
-//редактирование постов
+//редактирование поста
 Route::get('admin/edit-post/{id}', 'AdminPostsController@editPost')->name('editPost');
 //добавление постов
 Route::get('/admin/add-post', 'AdminPostsController@addPost')->name('addPost');
@@ -47,9 +50,20 @@ Route::delete('/admin/{article}', 'AdminPostsController@deletePost')->name('dele
 //обновление поста
 Route::put('/admin/{id}', 'AdminPostsController@updatePost')->name('updatePost');
 
-//коменты
+//все коменты
 Route::get('/admin/comments', 'AdminCommentsController@allComments')->name('allComments');
+//редактирование комента
 Route::get('/admin/comment/{id}', 'AdminCommentsController@editComment')->name('editComment');
-
+//удаление комента
 Route::delete('/admin/comment/{comment}','AdminCommentsController@deleteComment')->name('deleteComment');
+//обновление комента
 Route::put('/admin/comment/{id}', 'AdminCommentsController@updateComment')->name('updateComment');
+
+//все юзеры
+Route::get('/admin/users', 'AdminUsersController@allUsers')->name('allUsers');
+//редактирование юзера
+Route::get('/admin/user/{id}', 'AdminUsersController@editUser')->name('editUser');
+//удаление юзера
+Route::delete('/admin/user/{user}','AdminUsersController@deleteUser')->name('deleteUser');
+//обновление юзера
+Route::put('/admin/user/{id}', 'AdminUsersController@updateUser')->name('updateUser');

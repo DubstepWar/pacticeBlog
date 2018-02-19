@@ -31,6 +31,11 @@ Auth::routes();
 
 //личный кабинет
 Route::get('/user-profile/{id}','UserProfileController@show')->name('userProfile');
+//изменение пароля
+Route::get('/user-profile/change/{id}', 'UserProfileController@change')->name('change');
+Route::put('/user-profile/change/{id}', 'UserProfileController@updateUser')->name('updateUserInfo');
+Route::post('/changePassword','UserProfileController@changePassword')->name('changePassword');
+
 
 //админка
 

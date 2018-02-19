@@ -10,7 +10,7 @@
                 <h1 class="header-on-page">Список тегов</h1>
                 <ul class="list-group">
                     @foreach($tags as $tag)
-                        <li class="list-group-item"><a href="/posts/tag/{{$tag->alias}}">{{$tag->name}}</a></li>
+                        <li class="list-group-item"><a href="/posts/tag/{{$tag->id}}">{{$tag->name}}</a></li>
                     @endforeach
 
                 </ul>

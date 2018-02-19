@@ -19,10 +19,10 @@ Route::get('/categories', 'CategoriesController@show')->name('categories');
 Route::get('/tags', 'TagsController@show')->name('tags');
 
 //Посты тегов
-Route::get('/posts/tag/{alias}','TagPostsController@show')->name('tag');
+Route::get('/posts/tag/{id}','TagPostsController@show')->name('tag');
 
 //все посты категории
-Route::get('/category/{alias}', 'PostsCategoryController@show')->name('category_posts');
+Route::get('/category/{id}', 'PostsCategoryController@show')->name('category_posts');
 
 //коменты
 Route::post('/post', 'PostController@comment')->name('comment_post');

@@ -13,7 +13,7 @@
 
             <p>Теги:</p>
             @foreach($tags as $tag)
-                <a href="/posts/tag/{{$tag->alias}}">{{$tag->name}}</a>
+                <a href="/posts/tag/{{$tag->id}}">{{$tag->name}}</a>
             @endforeach
 
             @foreach($comments as $comment)

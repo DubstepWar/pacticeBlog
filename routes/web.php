@@ -63,6 +63,9 @@ Route::get('/admin/comment/{id}', 'AdminCommentsController@editComment')->name('
 Route::delete('/admin/comment/{comment}','AdminCommentsController@deleteComment')->name('deleteComment');
 //обновление комента
 Route::put('/admin/comment/{id}', 'AdminCommentsController@updateComment')->name('updateComment');
+//добавление категории
+Route::post('/add/tag','AdminCatController@createCat')->name('add_cat');
+Route::post('/add/category','AdminTagController@createTag')->name('add_tag');
 
 //все юзеры
 Route::get('/admin/users', 'AdminUsersController@allUsers')->name('allUsers');

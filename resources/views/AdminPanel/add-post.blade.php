@@ -40,6 +40,24 @@
 
             </form>
         </div>
+        <div >
+
     </div>
+        <div >
+            <h3>Создать категорию</h3>
+            <form action="{{ route('add_cat') }}" method="POST">
+                {!! csrf_field() !!}
+                <label>Название категории</label>
+                <input type="text" name="cat" value="{{ old('cat') }}" placeholder="Категория">
+                <button class="btn btn-success" type="submit" name="done">Создать</button>
+            </form>
+            <h3>Создать новый тег</h3>
+            <form action="{{ route('add_tag') }}" method="POST">
+                {!! csrf_field() !!}
+                <label>Название тега</label>
+                <input type="text" name="tag" value="{{ old('tag') }}" placeholder="Тег">
+                <button class="btn btn-success" type="submit" name="done">Создать</button>
+            </form>
+        </div>
 
 @endsection

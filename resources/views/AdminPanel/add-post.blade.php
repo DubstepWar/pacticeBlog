@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container">
-        <div class="conteiner-fluid">
+        <div class="container-fluid">
             <form action="{{ route('storePost') }}" method="post">
                 <div class="form-group">
                     <label for="name">Название поста</label>
@@ -26,10 +26,13 @@
                     <input class="form-control" type="text" name="img">
                 </div>
                 <div class="form-group">
-                    <label for="category_id">ID категории</label>
-                    <input class="form-control" type="number" name="category_id">
+                    <label >Выберите категорию</label>
+                    <select name="category">
+                        @foreach($categories as $category => $key)
+                            <option><span>{{$category}}. </span>{{$key}}</option>
+                        @endforeach
+                    </select>
                 </div>
-
                 <button class="btn btn-success" type="submit" name="done">Создать пост</button>
                 <a class="btn btn-info" href="{{ route('admin') }}" role="button">Вернуться к редактированию</a>
 

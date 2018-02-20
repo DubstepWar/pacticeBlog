@@ -40,7 +40,7 @@
                 {{ csrf_field() }}
 
             </form>
-        </div>
+
         <div>
 
         </div>
@@ -65,5 +65,8 @@
                 <button class="btn btn-success" type="submit" name="done">Создать</button>
             </form>
         </div>
+        </div>
+    </div>
+
 
 @endsection

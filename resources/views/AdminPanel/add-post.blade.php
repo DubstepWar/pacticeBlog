@@ -4,6 +4,7 @@
 
     <div class="container">
         <div class="container-fluid">
+            <h3 class="header-on-page">Создать пост</h3>
             <form action="{{ route('storePost') }}" method="post">
                 <div class="form-group">
                     <label for="name">Название поста</label>
@@ -26,10 +27,10 @@
                     <input class="form-control" type="text" name="img">
                 </div>
                 <div class="form-group">
-                    <label >Выберите категорию</label>
-                    <select name="category">
-                        @foreach($categories as $category => $key)
-                            <option><span>{{$category}}. </span>{{$key}}</option>
+                    <label for="category">Выберите категорию</label>
+                    <select name="category" class="form-control">
+                        @foreach($categories as $key => $category)
+                            <option><span>{{$key}}) </span>{{$category}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -40,22 +41,27 @@
 
             </form>
         </div>
-        <div >
+        <div>
 
-    </div>
-        <div >
-            <h3>Создать категорию</h3>
-            <form action="{{ route('add_cat') }}" method="POST">
+        </div>
+        <div>
+            <h3 class="header-on-page">Создать категорию</h3>
+            <form action="{{ route('add_category') }}" method="POST">
                 {!! csrf_field() !!}
-                <label>Название категории</label>
-                <input type="text" name="cat" value="{{ old('cat') }}" placeholder="Категория">
+                <div class="form-group">
+                    <label>Название категории</label>
+                    <input class="form-control" type="text" name="category" value="{{ old('category') }}"
+                           placeholder="Категория">
+                </div>
                 <button class="btn btn-success" type="submit" name="done">Создать</button>
             </form>
-            <h3>Создать новый тег</h3>
+            <h3 class="header-on-page">Создать тег</h3>
             <form action="{{ route('add_tag') }}" method="POST">
                 {!! csrf_field() !!}
-                <label>Название тега</label>
-                <input type="text" name="tag" value="{{ old('tag') }}" placeholder="Тег">
+                <div class="form-group">
+                    <label>Название тега</label>
+                    <input class="form-control" type="text" name="tag" value="{{ old('tag') }}" placeholder="Тег">
+                </div>
                 <button class="btn btn-success" type="submit" name="done">Создать</button>
             </form>
         </div>

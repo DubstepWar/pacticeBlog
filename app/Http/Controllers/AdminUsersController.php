@@ -34,6 +34,6 @@ class AdminUsersController extends Controller
         $user->fill($input);
         $user->save();
 
-        return redirect()->back()->with('message','Юзер изменен!');
+        return redirect()->back()->with('message', 'Юзер изменен!');
     }
 }

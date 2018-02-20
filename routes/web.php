@@ -1,7 +1,5 @@
 <?php
 
-
-
 // главная
 Route::get('/', 'PageController@seeAll')->name('home');
 
@@ -19,7 +17,7 @@ Route::get('/categories', 'CategoriesController@show')->name('categories');
 Route::get('/tags', 'TagsController@show')->name('tags');
 
 //Посты тегов
-Route::get('/posts/tag/{id}','TagPostsController@show')->name('tag');
+Route::get('/posts/tag/{id}', 'TagPostsController@show')->name('tag');
 
 //все посты категории
 Route::get('/category/{id}', 'PostsCategoryController@show')->name('category_posts');
@@ -30,11 +28,11 @@ Route::post('/post', 'PostController@comment')->name('comment_post');
 Auth::routes();
 
 //личный кабинет
-Route::get('/user-profile/{id}','UserProfileController@show')->name('userProfile');
+Route::get('/user-profile/{id}', 'UserProfileController@show')->name('userProfile');
 //изменение пароля
 Route::get('/user-profile/change/{id}', 'UserProfileController@change')->name('change');
 Route::put('/user-profile/change/{id}', 'UserProfileController@updateUser')->name('updateUserInfo');
-Route::post('/changePassword','UserProfileController@changePassword')->name('changePassword');
+Route::post('/changePassword', 'UserProfileController@changePassword')->name('changePassword');
 
 
 //админка
@@ -45,6 +43,10 @@ Route::group(['middleware' => 'auth', 'middleware' => 'access:admin'], function 
 
 });
 
+//добавление тега
+Route::post('/add/tag', 'AdminCategoryController@createCategory')->name('add_category');
+//добавление категории
+Route::post('/add/category', 'AdminTagController@createTag')->name('add_tag');
 //редактирование поста
 Route::get('admin/edit-post/{id}', 'AdminPostsController@editPost')->name('editPost');
 //добавление постов
@@ -60,18 +62,16 @@ Route::get('/admin/comments', 'AdminCommentsController@allComments')->name('allC
 //редактирование комента
 Route::get('/admin/comment/{id}', 'AdminCommentsController@editComment')->name('editComment');
 //удаление комента
-Route::delete('/admin/comment/{comment}','AdminCommentsController@deleteComment')->name('deleteComment');
+Route::delete('/admin/comment/{comment}', 'AdminCommentsController@deleteComment')->name('deleteComment');
 //обновление комента
 Route::put('/admin/comment/{id}', 'AdminCommentsController@updateComment')->name('updateComment');
-//добавление категории
-Route::post('/add/tag','AdminCatController@createCat')->name('add_cat');
-Route::post('/add/category','AdminTagController@createTag')->name('add_tag');
+
 
 //все юзеры
 Route::get('/admin/users', 'AdminUsersController@allUsers')->name('allUsers');
 //редактирование юзера
 Route::get('/admin/user/{id}', 'AdminUsersController@editUser')->name('editUser');
 //удаление юзера
-Route::delete('/admin/user/{user}','AdminUsersController@deleteUser')->name('deleteUser');
+Route::delete('/admin/user/{user}', 'AdminUsersController@deleteUser')->name('deleteUser');
 //обновление юзера
 Route::put('/admin/user/{id}', 'AdminUsersController@updateUser')->name('updateUser');

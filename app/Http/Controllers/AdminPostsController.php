@@ -23,7 +23,6 @@ class AdminPostsController extends Controller
     public function addPost()
     {
         $categories = Category::pluck('name', 'id');
-      /*  dd( $categories);*/
         return view('AdminPanel.add-post')->with('categories', $categories);
     }
 
@@ -34,9 +33,10 @@ class AdminPostsController extends Controller
             'alias' => ['required', 'unique:articles,alias', 'max:30'],
             'description' => 'required | max:255',
             'body' => 'required',
-         /*   'category_id' => 'required',*/
+//            'category_id' => 'required',
         ]);
         $data = $request->input();
+//        dd($data);
         $article = new Article;
         $article->fill($data);
         $article->save();

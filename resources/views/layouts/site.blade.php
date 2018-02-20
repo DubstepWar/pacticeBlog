@@ -7,9 +7,9 @@
     <meta name="csrf_token" content="{{ csrf_token() }}">
 
     {{--<script>--}}
-        {{--window.Laravel = {!! json_encode([--}}
-        {{--'csrfToken' => csrf_token(),--}}
-        {{--]) !!};--}}
+    {{--window.Laravel = {!! json_encode([--}}
+    {{--'csrfToken' => csrf_token(),--}}
+    {{--]) !!};--}}
     {{--</script>--}}
 
     <title>Наш блог</title>
@@ -28,8 +28,8 @@
                  width="35px" height="35px" alt="logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggle-icon"></span>>
         </button>
 
@@ -53,43 +53,43 @@
 
             </ul>
         </div>
-                <!— Right Side Of Navbar —>
-                <ul class="nav navbar-nav navbar-right">
-                    <!— Authentication Links —>
-                    @guest
-                        <li><a href="{{ route('login') }}">Войти</a></li>
-                        <li><a href="{{ route('register') }}">Регистрация</a></li>
-                    @else
+        <!— Right Side Of Navbar —>
+        <ul class="nav navbar-nav navbar-right">
+            <!— Authentication Links —>
+            @guest
+                <li><a href="{{ route('login') }}">Войти</a></li>
+                <li><a href="{{ route('register') }}">Регистрация</a></li>
+            @else
 
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false" aria-haspopup="true">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-expanded="false" aria-haspopup="true">
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
 
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Выход
-                                    </a></li>
-                                @if(Auth::user()->is_admin == '1')
-                                    <li><a href="{{route('admin')}}">Админ-панель</a></li>
-                                @endif
-                                <li><a href="{{ route('userProfile',['id' => Auth::user()->id]) }}">Личный кабинет</a></li>
+                                Выход
+                            </a></li>
+                        @if(Auth::user()->is_admin == '1')
+                            <li><a href="{{route('admin')}}">Админ-панель</a></li>
+                        @endif
+                        <li><a href="{{ route('userProfile',['id' => Auth::user()->id]) }}">Личный кабинет</a></li>
 
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                                </li>
-
-                            </ul>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                              style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                         </li>
-                    @endguest
-                </ul>
+
+                    </ul>
+                </li>
+            @endguest
+        </ul>
 
     </nav>
 

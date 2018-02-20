@@ -12,18 +12,18 @@ use App\Category;
 use App\Tag;
 use Illuminate\Http\Request;
 
-class AdminCatController extends Controller
+class AdminCategoryController extends Controller
 {
-    public function createCat(Request $request) {
+    public function createCategory(Request $request) {
 
 
 
         $this->validate($request, [
-            'cat' => 'required'
+            'category' => 'required'
         ]);
 
         $category = Category::create([
-            'name' => $request->input('cat'),
+            'name' => $request->input('category'),
         ]);
 
         return redirect()->back()->with('message', 'Категория добавлена');

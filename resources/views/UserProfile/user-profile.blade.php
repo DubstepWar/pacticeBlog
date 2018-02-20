@@ -9,9 +9,6 @@
                 <h1 class="header-home-page">Мыло:{{ $user->email }}</h1>
                 <a class="btn btn-info btn-sm" role="button"
                    href="{{ route('change',['id' => $user->id]) }}">Редактировать личные данные</a>
-
-                {{--нужно будет доделать--}}
-
             </div>
         </div>
     </div>

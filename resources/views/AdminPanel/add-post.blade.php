@@ -30,6 +30,10 @@
                     <label for="category">Введиде ID категории</label>
                     <input class="form-control" type="number" name="category_id" placeholder="Выберите из списка доступных категорий">
                 </div>
+                <div class="form-group">
+                    <label for="tag">Введиде ID тега</label>
+                    <input class="form-control" type="number" name="tag_id" placeholder="Выберите из списка доступных тегов">
+                </div>
                 <button class="btn btn-success" type="submit" name="done">Создать пост</button>
                 <a class="btn btn-info" href="{{ route('admin') }}" role="button">Вернуться к редактированию</a>
 
@@ -43,6 +47,15 @@
                     @foreach($categories as $category)
                     <li class="list-group-item">{{$category->id}}) {{$category->name  }}</li>
                         @endforeach
+                </ul>
+            </div>
+
+            <div>
+                <h1 class="header-on-page">Список доступных тегов</h1>
+                <ul class="list-group">
+                    @foreach($tags as $tag)
+                        <li class="list-group-item">{{$tag->id}}) {{$tag->name  }}</li>
+                    @endforeach
                 </ul>
             </div>
 

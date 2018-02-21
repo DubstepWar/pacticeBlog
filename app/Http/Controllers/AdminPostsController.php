@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Category;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class AdminPostsController extends Controller
@@ -23,7 +24,8 @@ class AdminPostsController extends Controller
     public function addPost()
     {
         $categories = Category::all();
-        return view('AdminPanel.add-post')->with('categories', $categories);
+        $tags = Tag::all();
+        return view('AdminPanel.add-post')->with(['categories' => $categories, 'tags' => $tags]);
     }
 
     public function storePost(Request $request)
@@ -36,7 +38,7 @@ class AdminPostsController extends Controller
 //            'category_id' => 'required',
         ]);
         $data = $request->input();
-//        dd($data);
+        dd($data);
         $article = new Article;
         $article->fill($data);
         $article->save();

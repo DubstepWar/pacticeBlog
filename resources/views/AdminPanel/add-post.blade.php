@@ -28,12 +28,12 @@
                         <input class="form-control" type="text" name="img">
                     </div>
                     <div class="form-group">
-                        <label for="category">Введиде ID категории</label>
+                        <label for="category">Введиде № категории</label>
                         <input class="form-control" type="number" name="category_id"
                                placeholder="Выберите из списка доступных категорий">
                     </div>
                     <div class="form-group">
-                        <label for="tag">Введиде ID тега</label>
+                        <label for="tag">Введиде № тега</label>
                         <input class="form-control" type="number" name="tag_id"
                                placeholder="Выберите из списка доступных тегов">
                     </div>
@@ -49,7 +49,7 @@
                     <h1 class="header-on-page">Список доступных категорий</h1>
                     <ul class="list-group">
                         @foreach($categories as $category)
-                            <li class="list-group-item">{{$category->id}}) {{$category->name  }}</li>
+                            <li class="list-group-item">№{{$category->id}}) {{$category->name  }}</li>
                         @endforeach
                     </ul>
                 </div>
@@ -58,7 +58,7 @@
                     <h1 class="header-on-page">Список доступных тегов</h1>
                     <ul class="list-group">
                         @foreach($tags as $tag)
-                            <li class="list-group-item">{{$tag->id}}) {{$tag->name  }}</li>
+                            <li class="list-group-item">№{{$tag->id}}) {{$tag->name  }}</li>
                         @endforeach
                     </ul>
                 </div>

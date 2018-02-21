@@ -22,7 +22,7 @@ class AdminPostsController extends Controller
 
     public function addPost()
     {
-        $categories = Category::pluck('name', 'id');
+        $categories = Category::all();
         return view('AdminPanel.add-post')->with('categories', $categories);
     }
 

@@ -27,12 +27,8 @@
                     <input class="form-control" type="text" name="img">
                 </div>
                 <div class="form-group">
-                    <label for="category">Выберите категорию</label>
-                    <select name="category" class="form-control">
-                        @foreach($categories as $key => $category)
-                            <option><span>{{$key}}) </span>{{$category}}</option>
-                        @endforeach
-                    </select>
+                    <label for="category">Введиде ID категории</label>
+                    <input class="form-control" type="number" name="category_id" placeholder="Выберите из списка доступных категорий">
                 </div>
                 <button class="btn btn-success" type="submit" name="done">Создать пост</button>
                 <a class="btn btn-info" href="{{ route('admin') }}" role="button">Вернуться к редактированию</a>
@@ -41,30 +37,39 @@
 
             </form>
 
-        <div>
+            <div>
+                <h1 class="header-on-page">Список доступных категорий</h1>
+                <ul class="list-group">
+                    @foreach($categories as $category)
+                    <li class="list-group-item">{{$category->id}}) {{$category->name  }}</li>
+                        @endforeach
+                </ul>
+            </div>
 
-        </div>
-        <div>
-            <h3 class="header-on-page">Создать категорию</h3>
-            <form action="{{ route('add_category') }}" method="POST">
-                {!! csrf_field() !!}
-                <div class="form-group">
-                    <label>Название категории</label>
-                    <input class="form-control" type="text" name="category" value="{{ old('category') }}"
-                           placeholder="Категория">
-                </div>
-                <button class="btn btn-success" type="submit" name="done">Создать</button>
-            </form>
-            <h3 class="header-on-page">Создать тег</h3>
-            <form action="{{ route('add_tag') }}" method="POST">
-                {!! csrf_field() !!}
-                <div class="form-group">
-                    <label>Название тега</label>
-                    <input class="form-control" type="text" name="tag" value="{{ old('tag') }}" placeholder="Тег">
-                </div>
-                <button class="btn btn-success" type="submit" name="done">Создать</button>
-            </form>
-        </div>
+            <div>
+
+            </div>
+            <div>
+                <h3 class="header-on-page">Создать категорию</h3>
+                <form action="{{ route('add_category') }}" method="POST">
+                    {!! csrf_field() !!}
+                    <div class="form-group">
+                        <label>Название категории</label>
+                        <input class="form-control" type="text" name="category" value="{{ old('category') }}"
+                               placeholder="Категория">
+                    </div>
+                    <button class="btn btn-success" type="submit" name="done">Создать</button>
+                </form>
+                <h3 class="header-on-page">Создать тег</h3>
+                <form action="{{ route('add_tag') }}" method="POST">
+                    {!! csrf_field() !!}
+                    <div class="form-group">
+                        <label>Название тега</label>
+                        <input class="form-control" type="text" name="tag" value="{{ old('tag') }}" placeholder="Тег">
+                    </div>
+                    <button class="btn btn-success" type="submit" name="done">Создать</button>
+                </form>
+            </div>
         </div>
     </div>
 

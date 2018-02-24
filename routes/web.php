@@ -11,6 +11,8 @@ Auth::routes();
 //статические стр
 Route::get('/about', 'AboutController@index')->name('about');
 Route::get('/contacts', 'ContactsController@index')->name('contacts');
+//обратная связь
+Route::post('/contacts', 'MailSettingController@sendForm')->name('sendForm');
 
 //теги и категории
 Route::get('/categories', 'CategoriesController@show')->name('categories');

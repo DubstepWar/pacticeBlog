@@ -10,7 +10,11 @@ namespace  {
     exit("This file should not be included, only analyzed by your IDE");
 }
 
-namespace Illuminate\Support\Facades { 
+namespace Illuminate\Support\Facades {
+
+    use Psr\Container\ContainerExceptionInterface;
+    use Psr\Container\NotFoundExceptionInterface;
+    use Symfony\Component\HttpFoundation\Exception\SuspiciousOperationException;
 
     class App {
         
@@ -1348,7 +1352,7 @@ namespace Illuminate\Support\Facades {
     }
 
     class Artisan {
-        
+
         /**
          * Run the console application.
          *
@@ -1362,7 +1366,7 @@ namespace Illuminate\Support\Facades {
             //Method inherited from \Illuminate\Foundation\Console\Kernel            
             return \App\Console\Kernel::handle($input, $output);
         }
-        
+
         /**
          * Terminate the application.
          *
@@ -1390,7 +1394,7 @@ namespace Illuminate\Support\Facades {
             //Method inherited from \Illuminate\Foundation\Console\Kernel            
             return \App\Console\Kernel::command($signature, $callback);
         }
-        
+
         /**
          * Register the given command with the console application.
          *
@@ -1403,7 +1407,7 @@ namespace Illuminate\Support\Facades {
             //Method inherited from \Illuminate\Foundation\Console\Kernel            
             \App\Console\Kernel::registerCommand($command);
         }
-        
+
         /**
          * Run an Artisan console command by name.
          *
@@ -4775,7 +4779,7 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Filesystem\Filesystem::glob($pattern, $flags);
         }
-        
+
         /**
          * Get an array of all files in a directory.
          *
@@ -4788,7 +4792,7 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Filesystem\Filesystem::files($directory, $hidden);
         }
-        
+
         /**
          * Get all of the files from the given directory (recursive).
          *
@@ -5656,7 +5660,7 @@ namespace Illuminate\Support\Facades {
         {
             \Illuminate\Log\Writer::useDailyFiles($path, $days, $level);
         }
-        
+
         /**
          * Register a Syslog handler.
          *
@@ -5837,7 +5841,7 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Mail\Mailer::render($view, $data);
         }
-        
+
         /**
          * Send a new message using a view.
          *
@@ -5851,7 +5855,7 @@ namespace Illuminate\Support\Facades {
         {
             \Illuminate\Mail\Mailer::send($view, $data, $callback);
         }
-        
+
         /**
          * Queue a new e-mail message for sending.
          *
@@ -5892,7 +5896,7 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Mail\Mailer::queueOn($queue, $view);
         }
-        
+
         /**
          * Queue a new e-mail message for sending after (n) seconds.
          *
@@ -7443,7 +7447,7 @@ namespace Illuminate\Support\Facades {
             //Method inherited from \Symfony\Component\HttpFoundation\Request            
             return \Illuminate\Http\Request::get($key, $default);
         }
-        
+
         /**
          * Gets the Session.
          *
@@ -7484,7 +7488,7 @@ namespace Illuminate\Support\Facades {
             //Method inherited from \Symfony\Component\HttpFoundation\Request            
             return \Illuminate\Http\Request::hasSession();
         }
-        
+
         /**
          * Sets the Session.
          *
@@ -10881,7 +10885,7 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Filesystem\FilesystemAdapter::temporaryUrl($path, $expiration, $options);
         }
-        
+
         /**
          * Get a temporary URL for the file at the given path.
          *
@@ -10896,7 +10900,7 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Filesystem\FilesystemAdapter::getAwsTemporaryUrl($adapter, $path, $expiration, $options);
         }
-        
+
         /**
          * Get a temporary URL for the file at the given path.
          *

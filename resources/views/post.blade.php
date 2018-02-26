@@ -8,7 +8,7 @@
             <div class="text-center">
                 <img class="w-75" src="{{ $article->img }}" alt="">
             </div>
-            <p class="text-justify">{{ $article->body }}</p>
+            <p class="text-justify">{!! $article->body !!} </p>
             <a class="btn btn-primary btn-sm" role="button" href="/">Вернуться</a>
 
             <p>Теги:</p>

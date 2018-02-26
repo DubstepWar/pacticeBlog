@@ -32,13 +32,12 @@ class AdminPostsController extends Controller
     {
         $this->validate($request, [
             'name' => 'required | max:255',
-            'alias' => ['required', 'unique:articles,alias', 'max:30'],
+            'alias' => ['required', 'unique:articles,alias', 'max:50'],
             'description' => 'required | max:255',
             'body' => 'required',
 //            'category_id' => 'required',
         ]);
         $data = $request->input();
-        dd($data);
         $article = new Article;
         $article->fill($data);
         $article->save();

@@ -9,7 +9,6 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use App\Tag;
 use Illuminate\Http\Request;
 
 class AdminCategoryController extends Controller
@@ -27,5 +26,12 @@ class AdminCategoryController extends Controller
         ]);
 
         return redirect()->back()->with('message', 'Категория добавлена');
+    }
+
+    public function deleteCategory(Request $request)
+    {
+        $category = Category::findOrFail($request->input('idCategory'));
+        $category->delete();
+        return redirect( route('addPost') );
     }
 }

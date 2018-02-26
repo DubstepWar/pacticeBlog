@@ -45,10 +45,18 @@ Route::group(['middleware' => 'auth', 'middleware' => 'access:admin'], function 
 
 });
 
-//добавление тега
-Route::post('/add/tag', 'AdminCategoryController@createCategory')->name('add_category');
 //добавление категории
-Route::post('/add/category', 'AdminTagController@createTag')->name('add_tag');
+Route::post('/add/category', 'AdminCategoryController@createCategory')->name('add_category');
+//удаление категории
+Route::delete('/add/category', 'AdminCategoryController@deleteCategory')->name('deleteCategory');
+
+//добавление тега
+Route::post('/add/tag', 'AdminTagController@createTag')->name('add_tag');
+//удаление тега
+Route::delete('/add/tag', 'AdminTagController@deleteTag')->name('deleteTag');
+
+
+
 //редактирование поста
 Route::get('admin/edit-post/{id}', 'AdminPostsController@editPost')->name('editPost');
 //добавление постов

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
-    public function getPost(Request $request, $alias)
+    public function getPost($alias)
     {
         $article = Article::all()->where('alias', $alias)->first();
         $tags = Tag::all()->sortBy('name');

@@ -6,7 +6,7 @@
             <p class="header-on-page">{{ $article->name }}</p>
             <p class="date-on-page">{{ $article->created_at }}</p>
             <div class="text-center">
-                <img class="w-75" src="{{ $article->img }}" alt="">
+                <img class="w-75" src="/public/images/{{ $article->img }}" alt="">
             </div>
             <p class="text-justify">{!! $article->body !!} </p>
             <a class="btn btn-primary btn-sm" role="button" href="/">Вернуться</a>

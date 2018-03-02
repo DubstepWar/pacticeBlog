@@ -14,7 +14,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('updatePost',['id' => $articles->id]) }}" method="post">
+            <form action="{{ route('updatePost',['id' => $articles->id]) }}" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name">Название поста</label>
                     <input class="form-control" type="text" name="name" value="{{ $articles->name }}">
@@ -32,8 +32,8 @@
                     <textarea class="form-control my-editor" name="body">{{ $articles->body }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="img">URL картинки</label>
-                    <input class="form-control img-choose" type="text" name="img" value="{{ $articles->img }}">
+                    <label for="img">Картинка</label>
+                    <input class="form-control img-choose" type="file" name="img">
                 </div>
                 <div class="form-group">
                     <label for="category_id">ID категории</label>

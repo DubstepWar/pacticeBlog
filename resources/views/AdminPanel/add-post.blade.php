@@ -6,7 +6,7 @@
         <div class="row container-fluid">
             <div class="col-md-6">
                 <h3 class="header-on-page">Создать пост</h3>
-                <form action="{{ route('storePost') }}" method="post" enctype = "multipart/form-data">
+                <form action="{{ route('storePost') }}" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="name">Название поста</label>
                         <input class="form-control" type="text" name="name">
@@ -28,14 +28,20 @@
                         <input class="form-control img-choose" type="file" name="img">
                     </div>
                     <div class="form-group">
-                        <label for="category">Введиде № категории</label>
-                        <input class="form-control" type="number" name="category_id"
-                               placeholder="Выберите из списка доступных категорий">
+                        <label for="category_id">Выберите категорию</label>
+                        <select class="form-control" name="category_id">
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="tag">Введиде № тега</label>
-                        <input class="form-control" type="number" name="tag_id"
-                               placeholder="Выберите из списка доступных тегов">
+                        <label>Выберите тег/теги</label>
+                        <select class="form-control" multiple size="5" name="tags[]">
+                            @foreach($tags as $tag)
+                                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <button class="btn btn-success" type="submit" name="done">Создать пост</button>
                     <a class="btn btn-info" href="{{ route('admin') }}" role="button">Вернуться к редактированию</a>
@@ -126,7 +132,7 @@
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
     <script>
         var editor_config = {
-            path_absolute : "/",
+            path_absolute: "/",
             selector: "textarea.my-editor",
             plugins: [
                 "advlist autolink lists link image charmap print preview hr anchor pagebreak",
@@ -136,9 +142,9 @@
             ],
             toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
             relative_urls: false,
-            file_browser_callback : function(field_name, url, type, win) {
+            file_browser_callback: function (field_name, url, type, win) {
                 var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-                var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
+                var y = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
 
                 var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
                 if (type == 'image') {
@@ -148,12 +154,12 @@
                 }
 
                 tinyMCE.activeEditor.windowManager.open({
-                    file : cmsURL,
-                    title : 'Filemanager',
-                    width : x * 0.8,
-                    height : y * 0.8,
-                    resizable : "yes",
-                    close_previous : "no"
+                    file: cmsURL,
+                    title: 'Filemanager',
+                    width: x * 0.8,
+                    height: y * 0.8,
+                    resizable: "yes",
+                    close_previous: "no"
                 });
             }
         };

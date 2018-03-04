@@ -36,9 +36,12 @@
                     <input class="form-control img-choose" type="file" name="img">
                 </div>
                 <div class="form-group">
-                    <label for="category_id">ID категории</label>
-                    <input class="form-control" type="number" name="category_id"
-                           value="{{ $articles->category_id }}">
+                    <label for="category_id">Выберите категорию</label>
+                    <select class="form-control" name="category_id">
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <button class="btn btn-success" type="submit" name="doneUpdate">Обновить пост</button>

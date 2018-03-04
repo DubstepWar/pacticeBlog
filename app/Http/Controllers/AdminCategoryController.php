@@ -30,7 +30,7 @@ class AdminCategoryController extends Controller
 
     public function deleteCategory(Request $request)
     {
-        $category = Category::findOrFail($request->input('idCategory'));
+        $category = Category::findOrFail($request->input('categoryDelete'));
         $category->delete();
         return redirect( route('addPost') );
     }

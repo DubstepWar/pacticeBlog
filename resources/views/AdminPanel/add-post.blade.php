@@ -3,76 +3,51 @@
 @section('content')
 
     <div class="container">
-        <div class="row container-fluid">
-            <div class="col-md-6">
-                <h3 class="header-on-page">Создать пост</h3>
-                <form action="{{ route('storePost') }}" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="name">Название поста</label>
-                        <input class="form-control" type="text" name="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="alias">Псевдоним</label>
-                        <input class="form-control" type="text" name="alias">
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Краткое описание поста</label>
-                        <input class="form-control" type="text" name="description">
-                    </div>
-                    <div class="form-group">
-                        <label for="body">Полный текст поста</label>
-                        <textarea class="form-control my-editor" name="body"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="img">Картинка</label>
-                        <input class="form-control img-choose" type="file" name="img">
-                    </div>
-                    <div class="form-group">
-                        <label for="category_id">Выберите категорию</label>
-                        <select class="form-control" name="category_id">
-                            @foreach($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Выберите тег/теги</label>
-                        <select class="form-control" multiple size="5" name="tags[]">
-                            @foreach($tags as $tag)
-                                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <button class="btn btn-success" type="submit" name="done">Создать пост</button>
-                    <a class="btn btn-info" href="{{ route('admin') }}" role="button">Вернуться к редактированию</a>
-
-                    {{ csrf_field() }}
-
-                </form>
-            </div>
-            <div class="col-md-6">
-                <div>
-                    <h1 class="header-on-page">Список доступных категорий</h1>
-                    <ul class="list-group">
+        <div class="container-fluid">
+            <h3 class="header-on-page">Создать пост</h3>
+            <form action="{{ route('storePost') }}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Название поста</label>
+                    <input class="form-control" type="text" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="alias">Псевдоним</label>
+                    <input class="form-control" type="text" name="alias">
+                </div>
+                <div class="form-group">
+                    <label for="description">Краткое описание поста</label>
+                    <input class="form-control" type="text" name="description">
+                </div>
+                <div class="form-group">
+                    <label for="body">Полный текст поста</label>
+                    <textarea class="form-control my-editor" name="body"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="img">Картинка</label>
+                    <input class="form-control img-choose" type="file" name="img">
+                </div>
+                <div class="form-group">
+                    <label for="category_id">Выберите категорию</label>
+                    <select class="form-control" name="category_id">
                         @foreach($categories as $category)
-                            <li class="list-group-item">
-                                №<span class="text-danger">{{$category->id}}</span>) {{$category->name  }}
-                            </li>
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
-                    </ul>
+                    </select>
                 </div>
-
-                <div>
-                    <h1 class="header-on-page">Список доступных тегов</h1>
-                    <ul class="list-group">
+                <div class="form-group">
+                    <label>Выберите тег/теги</label>
+                    <select class="form-control" multiple size="3" name="tags[]">
                         @foreach($tags as $tag)
-                            <li class="list-group-item">
-                                №<span class="text-danger">{{$tag->id}}</span>) {{$tag->name  }}
-                            </li>
+                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                         @endforeach
-                    </ul>
+                    </select>
                 </div>
-            </div>
+                <button class="btn btn-success" type="submit" name="done">Создать пост</button>
+                <a class="btn btn-info" href="{{ route('admin') }}" role="button">Вернуться к редактированию</a>
+
+                {{ csrf_field() }}
+
+            </form>
         </div>
     </div>
     {{-- ************ --}}
@@ -95,9 +70,12 @@
                     {!! csrf_field() !!}
                     {{ method_field('delete') }}
                     <div class="form-group">
-                        <label>Введите № категории</label>
-                        <input class="form-control" type="number" name="idCategory"
-                               placeholder="Выберите из списка доступных категорий">
+                        <label>Выберите категорию для удаления</label>
+                        <select class="form-control" name="categoryDelete">
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <button class="btn btn-danger" type="submit" name="done">Удалить</button>
                 </form>
@@ -119,9 +97,12 @@
                     {!! csrf_field() !!}
                     {{ method_field('delete') }}
                     <div class="form-group">
-                        <label>Введите № тега</label>
-                        <input class="form-control" type="number" name="idTag"
-                               placeholder="Выберите из списка доступных тегов">
+                        <label>Выберите категорию для удаления</label>
+                        <select class="form-control" name="tagDelete">
+                            @foreach($tags as $tag)
+                                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <button class="btn btn-danger" type="submit" name="done">Удалить</button>
                 </form>

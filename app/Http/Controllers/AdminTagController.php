@@ -23,7 +23,7 @@ class AdminTagController extends Controller
 
     public function deleteTag(Request $request)
     {
-        $tag = Tag::findOrFail($request->input('idTag'));
+        $tag = Tag::findOrFail($request->input('tagDelete'));
         $tag->delete();
         return redirect(route('addPost'));
     }

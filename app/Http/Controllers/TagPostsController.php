@@ -7,7 +7,7 @@ use App\Tag;
 
 class TagPostsController extends Controller
 {
-    public function show(Request $request,  $id) {
+    public function show($id) {
         $tag = Tag::all()->where('id', $id)->first();
         $posts = $tag->articles->sortByDesc('created_at');
 

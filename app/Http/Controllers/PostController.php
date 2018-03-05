@@ -13,7 +13,7 @@ class PostController extends Controller
     public function getPost($alias)
     {
         $article = Article::all()->where('alias', $alias)->first();
-        $tags = Tag::all()->sortBy('name');
+        $tags = $article->tags;
         $comments = Comment::all()->where('article_id', $article->id)->sortBy('created_at');
         return view('post')->with(['article' => $article, 'tags' => $tags, 'comments' => $comments]);
 

@@ -18,8 +18,8 @@
 
             @foreach($comments as $comment)
                 <p>Пользователь: <span class="text-primary">{{ $comment->user->name }}</span> в
-                    <span>{{$comment->created_at}}</span> добавил комментарий:</p>
-                <p>{{$comment->comment}}</p>
+                    <span class="font-italic">{{$comment->created_at}}</span> добавил комментарий:</p>
+                <p class="lead ">{{$comment->comment}}</p>
             @endforeach
             @if (Auth::guest())
                 <p class="text-danger">Авторизируйтесь для коментариев</p>

@@ -43,6 +43,14 @@
                         @endforeach
                     </select>
                 </div>
+                <div class="form-group">
+                    <label>Выберите тег/теги</label>
+                    <select class="form-control" multiple size="5" name="tags[]">
+                        @foreach($tags as $tag)
+                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
 
                 <button class="btn btn-success" type="submit" name="doneUpdate">Обновить пост</button>
 

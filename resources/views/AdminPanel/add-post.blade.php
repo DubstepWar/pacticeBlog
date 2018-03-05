@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-group">
                     <label>Выберите тег/теги</label>
-                    <select class="form-control" multiple size="3" name="tags[]">
+                    <select class="form-control" multiple size="5" name="tags[]">
                         @foreach($tags as $tag)
                             <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                         @endforeach

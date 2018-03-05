@@ -11,9 +11,9 @@
             <p class="text-justify">{!! $article->body !!} </p>
             <a class="btn btn-primary btn-sm" role="button" href="/">Вернуться</a>
 
-            <p>Теги:</p>
+            <p class="lead text-danger">ТЕГИ:</p>
             @foreach($tags as $tag)
-                <a href="{{ route('tag', ['id' => $tag->id]) }}">{{$tag->name}}</a>
+                <a class="btn btn-warning btn-sm" href="{{ route('tag', ['id' => $tag->id]) }}">{{$tag->name}}</a>
             @endforeach
 
             @foreach($comments as $comment)

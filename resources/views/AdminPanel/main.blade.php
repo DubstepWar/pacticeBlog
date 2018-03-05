@@ -40,7 +40,7 @@
                     <a class="nav-link " href="{{ route('admin') }}">Все посты</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('addPost') }}">Добавить пост</a>
+                    <a class="nav-link" href="{{ route('addPost') }}">Добавить пост, категорию, тег</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('allUsers') }}">Пользователи</a>
@@ -48,8 +48,6 @@
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('allComments') }}">Комментарии</a>
                 </li>
-
-
             </ul>
         </div>
 

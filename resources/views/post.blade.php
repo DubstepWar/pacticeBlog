@@ -13,7 +13,7 @@
 
             <p class="lead text-danger">ТЕГИ:</p>
             @foreach($tags as $tag)
-                <a class="btn btn-warning btn-sm" href="{{ route('tag', ['id' => $tag->id]) }}">{{$tag->name}}</a>
+                <a class="btn btn-warning btn-sm" href="{{ route('tag', ['alias' => $tag->alias]) }}">{{$tag->name}}</a>
             @endforeach
 
             @foreach($comments as $comment)

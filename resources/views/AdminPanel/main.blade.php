@@ -48,6 +48,9 @@
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('allComments') }}">Комментарии</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('aboutView') }}">О проекте</a>
+                </li>
             </ul>
         </div>
 

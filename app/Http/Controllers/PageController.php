@@ -9,8 +9,9 @@ class PageController extends Controller
 {
 
     public function seeAll(){
-     $articles = Article::all();
-     return view('main')->with('articles',$articles);
+     $articles = Article::paginate(6);
+        $pagination = $articles->links('pagination.pagination');
+     return view('main')->with(['articles'=>$articles ,'pagination'=> $pagination]);
 
     }
 

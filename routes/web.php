@@ -12,17 +12,17 @@ Auth::routes();
 Route::get('/about', 'AboutController@index')->name('about');
 Route::get('/contacts', 'ContactsController@index')->name('contacts');
 //обратная связь
-Route::post('/contacts', 'MailSettingController@sendForm')->name('sendForm');
+Route::post('/contacts/mail', 'MailSettingController@sendForm')->name('sendForm');
 
 //теги и категории
 Route::get('/categories', 'CategoriesController@show')->name('categories');
 Route::get('/tags', 'TagsController@show')->name('tags');
 
 //Посты тегов
-Route::get('/posts/tag/{id}', 'TagPostsController@show')->name('tag');
+Route::get('/posts/tag/{alias}', 'TagPostsController@show')->name('tag');
 
 //все посты категории
-Route::get('/category/{id}', 'PostsCategoryController@show')->name('category_posts');
+Route::get('/category/{alias}', 'PostsCategoryController@show')->name('category_posts');
 
 //коменты
 Route::post('/post', 'PostController@comment')->name('comment_post');
@@ -85,3 +85,7 @@ Route::get('/admin/user/{id}', 'AdminUsersController@editUser')->name('editUser'
 Route::delete('/admin/user/{user}', 'AdminUsersController@deleteUser')->name('deleteUser');
 //обновление юзера
 Route::put('/admin/user/{id}', 'AdminUsersController@updateUser')->name('updateUser');
+//static page
+Route::get('/admin/about', 'AdminStaticController@aboutView')->name('aboutView');
+Route::get('/admin/about/{id}', 'AdminStaticController@editAbout')->name('editAbout');
+Route::put('/admin/about/{id}', 'AdminStaticController@updateAbout')->name('updateAbout');

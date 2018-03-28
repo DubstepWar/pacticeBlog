@@ -12,8 +12,9 @@ class AdminPostsController extends Controller
 {
     public function allPosts()
     {
-        $articles = Article::all();
-        return view('AdminPanel.all-posts')->with('articles', $articles);
+        $articles = Article::paginate(6);
+        $pagination = $articles->links('pagination.pagination');
+        return view('AdminPanel.all-posts')->with(['articles'=> $articles, 'pagination'=> $pagination]);
     }
 
     public function editPost($id)

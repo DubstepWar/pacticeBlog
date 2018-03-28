@@ -18,11 +18,13 @@ class AdminCategoryController extends Controller
 
 
         $this->validate($request, [
-            'category' => 'required'
+            'category' => 'required',
+            'alias' => 'required'
         ]);
 
         $category = Category::create([
             'name' => $request->input('category'),
+            'alias' => $request->input('alias')
         ]);
 
         return redirect()->back()->with('message', 'Категория добавлена');

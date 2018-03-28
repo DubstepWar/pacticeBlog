@@ -12,7 +12,7 @@
     {{--]) !!};--}}
     {{--</script>--}}
 
-    <title>Наш блог</title>
+    <title>BLOG</title>
     {{--Google Fonts--}}
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">

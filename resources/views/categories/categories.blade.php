@@ -10,7 +10,7 @@
 
                 <ul class="list-group">
                     @foreach($categories as $category)
-                        <li class="list-group-item"><a href="/category/{{$category->id}}">{{$category->name}}</a>
+                        <li class="list-group-item"><a href="/category/{{$category->alias}}">{{$category->name}}</a>
                         </li>
                     @endforeach
                 </ul>

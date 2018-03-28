@@ -11,11 +11,13 @@ class AdminTagController extends Controller
     {
 
         $this->validate($request, [
-            'tag' => 'required'
+            'tag' => 'required',
+            'alias' => 'required'
         ]);
 
         $tag = Tag::create([
             'name' => $request->input('tag'),
+            'alias' => $request->input('alias')
         ]);
 
         return redirect()->back()->with('message', 'Тег добавлен');

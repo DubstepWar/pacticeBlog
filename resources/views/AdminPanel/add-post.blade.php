@@ -61,6 +61,9 @@
                         <label>Название категории</label>
                         <input class="form-control" type="text" name="category" value="{{ old('category') }}"
                                placeholder="Категория">
+                        <label>Псевдоним категории</label>
+                        <input class="form-control" type="text" name="alias" value="{{ old('alias') }}"
+                               placeholder="Псевдоним">
                     </div>
                     <button class="btn btn-success" type="submit" name="done">Создать</button>
                 </form>
@@ -88,6 +91,9 @@
                         <label>Название тега</label>
                         <input class="form-control" type="text" name="tag" value="{{ old('tag') }}"
                                placeholder="Тег">
+                        <label>Псевдоним тега</label>
+                        <input class="form-control" type="text" name="alias" value="{{ old('alias') }}"
+                               placeholder="Псевдоним">
                     </div>
                     <button class="btn btn-success" type="submit" name="done">Создать</button>
                 </form>
